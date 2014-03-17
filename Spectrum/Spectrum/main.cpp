@@ -1,4 +1,7 @@
 #include <GL\glut.h>
+#include "Player.h"
+
+Player player;
 
 void setup()
 {
@@ -44,6 +47,8 @@ void render()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	
+	player.draw();
+
 	glutSwapBuffers();
 	glutPostRedisplay();
 }
