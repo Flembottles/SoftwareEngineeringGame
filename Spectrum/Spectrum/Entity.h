@@ -1,7 +1,9 @@
+#ifndef ENTITY_H
+#define ENTITY_H
 #include <GL/glut.h>
 class Entity
 {
-private:
+protected:
 	float x, y;
 	int width, height;
 public:
@@ -13,3 +15,4 @@ public:
 	int getWidth(),getHeight();
 	void setWidth(int width),setHeight(int height);
 };
+#endif

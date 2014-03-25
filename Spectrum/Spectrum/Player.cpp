@@ -2,10 +2,10 @@
 
 Player::Player()
 {
-	setX(100);
-	setY(150);
-	setWidth(30);
-	setHeight(30);
+	setX(16);
+	setY(32);
+	setWidth(8);
+	setHeight(16);
 }
 
 void Player::draw()
