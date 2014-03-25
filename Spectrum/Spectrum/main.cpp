@@ -1,7 +1,9 @@
 #include <GL\glut.h>
 #include "Player.h"
+#include "Platform.h"
 
 Player player;
+Platform platform(32,8);
 
 void setup()
 {
@@ -39,7 +41,7 @@ void resize(int w, int h)
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
    
-	gluOrtho2D(0, 1280, 0, 720);
+	gluOrtho2D(0, 256, 0, 224);
 
 	glMatrixMode(GL_MODELVIEW);
 }
@@ -48,6 +50,7 @@ void render()
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	player.draw();
+	platform.draw();
 
 	glutSwapBuffers();
 	glutPostRedisplay();

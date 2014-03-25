@@ -4,8 +4,8 @@ Player::Player()
 {
 	setX(100);
 	setY(150);
-	setWidth(30);
-	setHeight(30);
+	setWidth(8);
+	setHeight(16);
 }
 
 void Player::draw()
