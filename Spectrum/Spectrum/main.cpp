@@ -47,6 +47,39 @@ void keyDown(unsigned char key, int x, int y)
 			platform.color = platform.RED;
 		}
 		break;
+	case 49:
+		if (!colorKeyPressed)
+		{
+			colorKeyPressed = true;
+			player.colorR = 1.0;
+			player.colorG = 1.0;
+			player.colorB = 1.0;
+			player.colorChange = true;
+			player.color = player.RED;
+		}
+		break;
+	case 50:
+		if (!colorKeyPressed)
+		{
+			colorKeyPressed = true;
+			player.colorR = 1.0;
+			player.colorG = 1.0;
+			player.colorB = 1.0;
+			player.colorChange = true;
+			player.color = player.BLUE;
+		}
+		break;
+	case 51:
+		if (!colorKeyPressed)
+		{
+			colorKeyPressed = true;
+			player.colorR = 1.0;
+			player.colorG = 1.0;
+			player.colorB = 1.0;
+			player.colorChange = true;
+			player.color = player.GREEN;
+		}
+		break;
 	}
 }
 void keyUp(unsigned char key, int x, int y)
@@ -62,6 +95,15 @@ void keyUp(unsigned char key, int x, int y)
 	case 114:
 		colorKeyPressed = false;
 		break;
+	case 49:
+		colorKeyPressed = false;
+		break;
+	case 50:
+		colorKeyPressed = false;
+		break;
+	case 51:
+		colorKeyPressed = false;
+		break;
 	}
 }
 void specialKeyDown(int key, int x, int y)
@@ -75,6 +117,7 @@ void specialKeyUp(int key, int x, int y)
 void update()
 {
 	platform.update();
+	player.update();
 }
 void timer(int ms)
 {

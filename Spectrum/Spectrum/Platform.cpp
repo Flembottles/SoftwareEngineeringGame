@@ -53,8 +53,5 @@ void Platform::update()
 }
 void Platform::switchColor(colorList color)
 {
-	if (color==GREEN)
-	{
-		
-	}
+	
 }
