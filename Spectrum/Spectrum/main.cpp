@@ -79,6 +79,9 @@ void specialKeyDown(int key, int x, int y)
 		player.playerMoveState = player.RIGHT;
 		//player.setX(player.getX()+1);
 		break;
+	case GLUT_KEY_UP:
+		player.playerMoveState = player.UP;
+		break;
 	}
 }
 void specialKeyUp(int key, int x, int y)
@@ -89,6 +92,9 @@ void specialKeyUp(int key, int x, int y)
 		player.playerMoveState = player.NONE;
 		break;
 	case GLUT_KEY_RIGHT:
+		player.playerMoveState = player.NONE;
+		break;
+	case GLUT_KEY_UP:
 		player.playerMoveState = player.NONE;
 		break;
 	}
