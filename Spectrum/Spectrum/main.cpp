@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Platform.h"
 
+
 Player player;
 Platform platform(Platform::RED);
 bool colorKeyPressed = false;
@@ -47,6 +48,7 @@ void keyDown(unsigned char key, int x, int y)
 			platform.color = platform.RED;
 		}
 		break;
+
 	}
 }
 void keyUp(unsigned char key, int x, int y)
@@ -62,19 +64,40 @@ void keyUp(unsigned char key, int x, int y)
 	case 114:
 		colorKeyPressed = false;
 		break;
+	
 	}
 }
 void specialKeyDown(int key, int x, int y)
 {
-
+	switch(key)
+	{
+	case GLUT_KEY_LEFT:
+		player.playerMoveState = player.LEFT;
+		//player.setX(player.getX()-1);
+		break;
+	case GLUT_KEY_RIGHT:
+		player.playerMoveState = player.RIGHT;
+		//player.setX(player.getX()+1);
+		break;
+	}
 }
 void specialKeyUp(int key, int x, int y)
 {
-
+		switch(key)
+	{
+	case GLUT_KEY_LEFT:
+		player.playerMoveState = player.NONE;
+		break;
+	case GLUT_KEY_RIGHT:
+		player.playerMoveState = player.NONE;
+		break;
+	}
 }
 void update()
 {
 	platform.update();
+	player.update();
+	
 }
 void timer(int ms)
 {

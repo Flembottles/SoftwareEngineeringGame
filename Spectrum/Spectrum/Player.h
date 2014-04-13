@@ -5,4 +5,7 @@ public:
 	Player();
 	void draw();
 	void update();
+	enum playermove{UP,DOWN,LEFT,RIGHT, NONE};
+	playermove playerMoveState;
+	bool keyPressed;
 };

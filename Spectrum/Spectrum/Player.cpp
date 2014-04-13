@@ -21,3 +21,18 @@ void Player::draw()
 	glEnd();
 	glPopMatrix();
 }
+
+void Player::update() {
+
+	switch(playerMoveState) {
+		case LEFT:
+			setX(getX()-1);
+		break;
+		case RIGHT:
+			setX(getX()+1);
+		break;
+		case NONE:
+		break;
+	}
+
+}
