@@ -1,3 +1,6 @@
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/OpenGL.hpp>
 #include <GL\glut.h>
 #include "Player.h"
 #include "Platform.h"
