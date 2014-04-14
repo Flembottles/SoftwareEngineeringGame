@@ -6,6 +6,9 @@ Player::Player()
 	setY(32);
 	setWidth(8);
 	setHeight(16);
+	velocityX = 1;
+	velocityY = 1;
+	jumping = false;
 }
 
 void Player::draw()
@@ -26,13 +29,26 @@ void Player::update() {
 
 	switch(playerMoveState) {
 		case LEFT:
-			setX(getX()-1);
+			setX(getX()-velocityX);
 		break;
 		case RIGHT:
-			setX(getX()+1);
+			setX(getX()+velocityX);
+		break;
+		case UP:
+			if(!jumping)
+				jumping = true;
 		break;
 		case NONE:
+			jumping = false;
 		break;
+	}
+
+	if(jumping) {
+		setY(getY()+velocityY);
+		//std::cout << "Jumping." << std::endl;
+	} else {
+		if(getY() > 20)
+		setY(getY()-velocityY);
 	}
 
 }
