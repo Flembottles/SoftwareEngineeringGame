@@ -7,7 +7,7 @@ Player::Player()
 	setWidth(8);
 	setHeight(16);
 	velocityX = 1;
-	velocityY = 1;
+	velocityY = 2;
 	jumping = false;
 }
 
