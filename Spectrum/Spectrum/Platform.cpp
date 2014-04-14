@@ -14,6 +14,7 @@ void Platform::draw()
 	glPushMatrix();
 	switch(color)
 	{
+
 	case RED:
 		colorR=1.0;
 		break;
@@ -53,5 +54,8 @@ void Platform::update()
 }
 void Platform::switchColor(colorList color)
 {
-	
+	if (color==GREEN)
+	{
+		
+	}
 }

@@ -1,35 +1,20 @@
 #include "Player.h"
 
-const int colorChangeSpeed = 0.1;
-
 Player::Player()
 {
 	setX(16);
 	setY(32);
 	setWidth(8);
 	setHeight(16);
-
-	color = BLUE;
-
-	
+	velocityX = 1;
+	velocityY = 1;
+	jumping = false;
 }
 
 void Player::draw()
 {
 	glPushMatrix();
-	switch(color)
-	{
-	case RED:
-		colorR=1.0;
-		break;
-	case GREEN:
-		colorG=1.0;
-		break;
-	case BLUE:
-		colorB=1.0;
-		break;
-	}
-	glColor3f(colorR,colorG,colorB);
+	glColor3f(0.0,0.0,1.0);
 	glTranslatef(getX(),getY(),0);
 	glBegin(GL_QUADS);
 	glVertex2f(0.0,0.0);
@@ -39,21 +24,30 @@ void Player::draw()
 	glEnd();
 	glPopMatrix();
 }
-void Player::update()
-{
-	if (colorChange && color == BLUE)
-	{
-		colorR-=0.05;
-		colorG-=0.05;
+
+void Player::update() {
+
+	switch(playerMoveState) {
+		case LEFT:
+			setX(getX()-velocityX);
+		break;
+		case RIGHT:
+			setX(getX()+velocityX);
+		break;
+		case UP:
+			if(!jumping)
+				jumping = true;
+		break;
+		case NONE:
+			jumping = false;
+		break;
 	}
-	if (colorChange && color == GREEN)
-	{
-		colorR-=0.05;
-		colorB-=0.05;
+	if(jumping) {
+		setY(getY()+velocityY);
+		//std::cout << "Jumping." << std::endl;
+	} else {
+		if(getY() > 20)
+		setY(getY()-velocityY);
 	}
-	if (colorChange && color == RED)
-	{
-		colorB-=0.05;
-		colorG-=0.05;
-	}
+
 }
